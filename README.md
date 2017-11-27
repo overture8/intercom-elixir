@@ -46,15 +46,16 @@ end
 The Intercom [REST API](https://developers.intercom.io/) provides full access to Intercom resources. This library provides a thin wrapper over [httpoison](https://github.com/edgurgel/httpoison):
 
 ```elixir
+config :intercom,
+  access_token: "<your-access-token>"
+```
+
+```elixir
 require Intercom.Client
 
 Intercom.Client.start
 
-Intercom.Client.get!(
-  "/users",
-  [],
-  hackney: Intercom.Client.auth("<personal access token>", "")
-)
+Intercom.Client.get!("/users")
 ```
 
 If you already have an access token you can find it [here](https://app.intercom.com/developers/_). If you want to create or learn more about access tokens then you can find more info [here](https://developers.intercom.io/docs/personal-access-tokens)
