@@ -4,6 +4,7 @@ defmodule Intercom.Client do
   defp process_request_headers(headers) do
     headers
     |> Enum.into([Accept: "application/json"])
+    |> Enum.into(["Content-Type": "application/json"])
     |> Enum.into([Authorization: "Bearer #{access_token()}"])
   end
 
